@@ -1,0 +1,130 @@
+{
+  "foods": [
+    {
+      "name": "Cookie",
+      "price": "0.25",
+      "emoji": ":cookie:"
+    },
+    {
+      "name": "Hamburger",
+      "price": "8.00",
+      "emoji": ":hamburger:"
+    },
+    {
+      "name": "Pizza - 8 slices",
+      "price": "2.00",
+      "emoji": ":pizza:"
+    },
+    {
+      "name": "Taco",
+      "price": "1.50",
+      "emoji": ":taco:"
+    },
+    {
+      "name": "Burrito",
+      "price": "3.00",
+      "emoji": ":burrito:"
+    }
+  ],
+  "drinks": [
+    {
+      "name": "Coffee",
+      "price": "6.00",
+      "emoji": ":coffee:"
+    },
+    {
+      "name": "Milk",
+      "price": "5.00",
+      "emoji": ":milk:"
+    },
+    {
+      "name": "The ✨Special✨ Milk",
+      "price": "69.69",
+      "emoji": "<:milky_blob:820147558973964408>"
+    },
+    {
+      "name": "Chockie Milk",
+      "price": "FREE",
+      "emoji": "<:chockie_milk:820147558998474802>"
+    },
+    {
+      "name": "Beer",
+      "price": "3.00",
+      "emoji": ":beer:"
+    }
+  ],
+  "tools": [
+    {
+      "name": "Wrench",
+      "price": "5.00",
+      "emoji": ":wrench:"
+    },
+    {
+      "name": "Hammer",
+      "price": "3.00",
+      "emoji": ":hammer:"
+    },
+    {
+      "name": "Axe",
+      "price": "5.00",
+      "emoji": ":wrench:"
+    },
+    {
+      "name": "Water Gun",
+      "price": "0.50",
+      "emoji": ":gun:"
+    },
+    {
+      "name": "Real Gun",
+      "price": "75.00",
+      "emoji": ":gun:"
+    },
+    {
+      "name": "Razor - 25 razors",
+      "price": "6.00",
+      "emoji": ":razor:"
+    },
+    {
+      "name": "Knife",
+      "price": "15.00",
+      "emoji": ":knife:"
+    }
+  ],
+  "property": [
+    {
+      "name": "Wooden Shack",
+      "price": "95.00",
+      "emoji": ":hut:"
+    },
+    {
+      "name": "Liveable House",
+      "price": "600.00",
+      "emoji": ":house_abandoned:"
+    },
+    {
+      "name": "Basic House",
+      "price": "900.00",
+      "emoji": ":house:"
+    },
+    {
+      "name": "Fancy Modern House",
+      "price": "1200.00",
+      "emoji": ":house_with_garden:"
+    },
+    {
+      "name": "Town Complex",
+      "price": "3000.00",
+      "emoji": ":homes:"
+    },
+    {
+      "name": "Mansion",
+      "price": "15.00",
+      "emoji": ":european_castle:"
+    },
+    {
+      "name": "Doll House",
+      "price": "1000000.00",
+      "emoji": ":ice_cube:"
+    }
+  ]
+}

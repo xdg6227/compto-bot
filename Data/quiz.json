@@ -1,0 +1,130 @@
+[
+	{
+		"question": "Continental United States has 4 time zones, can you name them?",
+		"answers": ["pacific, mountain, central, eastern"]
+	},
+  {
+		"question": "What was the Turkish city of Istanbul called before 1930?",
+		"answers": ["constantinople"]
+	},
+  {
+		"question": "From which US city do the band The Killers originate?",
+		"answers": ["las vegas"]
+	},
+  {
+		"question": "Name the Coffee shop in US sitcom Friends",
+		"answers": ["central perk"]
+	},
+  {
+		"question": "How many human players are there on each side in a polo match?",
+		"answers": ["four", "4"]
+	},
+  {
+		"question": "In what year did Tony Blair become British Prime Minister?",
+		"answers": ["1997"]
+	},
+  {
+		"question": "How many times has England won the men’s football World Cup?",
+		"answers": ["once", "1", "one"]
+	},
+  {
+		"question": "What is the capital of New Zealand?",
+		"answers": ["wellington"]
+	},
+  {
+		"question": "Street artist Banksy is originally associated with which British city?",
+		"answers": ["bristol"]
+	},
+  {
+		"question": "From what grain is the Japanese spirit Sake made?",
+		"answers": ["rice"]
+	},
+  {
+		"question": "In which part of your body would you find the cruciate ligament?",
+		"answers": ["knee"]
+	},
+  {
+		"question": "What is the name of the main antagonist in the Shakespeare play Othello?",
+		"answers": ["lago"]
+	},
+  {
+		"question": "What element is denoted by the chemical symbol Sn in the periodic table?",
+		"answers": ["tin"]
+	},
+  {
+		"question": "What is the name of the 1976 film about the Watergate scandal, starring Robert Redford and Dustin Hoffman?",
+		"answers": ["all the president's men", "all the presidents men"]
+	},
+  {
+		"question": "How many of Henry VIII’s wives were called Catherine?",
+		"answers": ["3", "three"]
+	},
+  {
+		"question": "What was the most popular girls name in the UK in 2019?",
+		"answers": ["olivia"]
+	},
+  {
+		"question": "Which comedian was the second permanent host of Never Mind the Buzzcocks after Mark Lamarr?",
+		"answers": ["simon amstell"]
+	},
+  {
+		"question": "Which popular video game franchise has released games with the subtitles World At War and Black Ops?",
+		"answers": ["call of duty", "cod"]
+	},
+  {
+		"question": "In what US State is the city Nashville?",
+		"answers": ["tennessee"]
+	},
+  {
+		"question": "Which rock band was founded by Trent Reznor in 1988?",
+		"answers": ["nine inch nails"]
+	},
+  {
+		"question": "What is the currency of Denmark?",
+		"answers": ["krone"]
+	},
+  {
+		"question": "Which Tennis Grand Slam is played on a clay surface?",
+		"answers": ["the french open", "roland garros"]
+	},
+  {
+		"question": "In which European country would you find the Rijksmuseum?",
+		"answers": ["netherlands"]
+	},
+  {
+		"question": "How many films have Al Pacino and Robert De Niro appeared in together?",
+		"answers": ["four", "4", "the godfather part 2, heat, righteous kill, the irishman"]
+	},
+  {
+		"question": "What was the old name for a Snickers bar before it changed in 1990?",
+		"answers": ["marathon"]
+	},
+  {
+		"question": "Who was the head of state in Japan during the second world war?",
+		"answers": ["emperor hirohito"]
+	},
+  {
+		"question": "What is the smallest planet in our solar system?",
+		"answers": ["mercury"]
+	},
+  {
+		"question": "Who wrote the novels Gone Girl and Sharp Objects?",
+		"answers": ["gillian flynn"]
+	},
+  {
+		"question": "Which legendary surrealist artist is famous for painting melting clocks?",
+		"answers": ["salvador dali"]
+	},
+  {
+		"question": "Which football club plays its home games at Loftus Road",
+		"answers": ["queen's park rangers", "queens park rangers"]
+	},
+  {
+		"question": "What color is the sky?",
+		"answers": ["blue"]
+	},
+	{
+		"question": "How many letters are there in the alphabet?",
+		"answers": ["26", "twenty-six", "twenty six", "twentysix"]
+	}
+]
