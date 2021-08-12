@@ -24,7 +24,7 @@ module.exports = {
       .setTitle(`<:compto:865852849024270346> ${client.user.username} Stat's`)
       .setColor('#7289da')
       .addField('<:cogwheel:865852821675704330> Main', `\`\`\`» ID: ${client.user.id}\n» Bot Version: v${require('../../package.json').version}\n» Created On: ${moment(client.user.createdTimestamp).format("LL")}\n» Servers: ${client.guilds.cache.size}\n» Users: ${client.users.cache.size}\`\`\``)
-      .addField('<:cogwheel:865852821675704330> Other', `\`\`\`» Developer: Night_Crown_#0001\n» Total Commands: ${client.commands.size}\n» Uptime: ${uptime}\n» Discord.js: ^${version}\n» Node.js: ^14.17.1\n» Memory Usage: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB\n» Platform: ${os.platform()}\`\`\``)
+      .addField('<:cogwheel:865852821675704330> Other', `\`\`\`» Developer: Night_Crown_#0001\n» Total Commands: ${client.commands.size}\n» Uptime: ${uptime}\n» Discord.js: ^${version}\n» Node.js: ^16.6.1\n» Memory Usage: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB\n» Platform: ${os.platform()}\`\`\``)
 
     message.channel.send({ embeds: [embed] });
   }
