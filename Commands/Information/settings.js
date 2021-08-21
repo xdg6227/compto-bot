@@ -4,7 +4,7 @@ module.exports = {
   name: "settings",
   description: "Read the privacy information for Compto.",
   usage: "settings [setting] [enable/disable]",
-  aliases: ["setting"],
+  aliases: ["setting", "config"],
   category: "Information",
   cooldown: 3,
   enabled: true,

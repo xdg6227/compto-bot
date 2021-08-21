@@ -5,10 +5,10 @@ module.exports = async (client, oldMessage, newMessage) => {
   var loggingEnabled = await client.db.fetch(`settings_logging_${newMessage.guild.id}`);
 
   var embed = new MessageEmbed()
-    .setTitle(':speech_balloon: Message was updated')
-    .setColor('YELLOW')
-    .setDescription(`**Old message:** ${oldMessage}\n**Edited message:** ${newMessage}`)
+    .setDescription(`:pencil: Message was updated\n\n**Channel:** <#${newMessage.channel.id}>\n${oldMessage || 'Empty Message'} -> ${newMessage || 'Empty Message'}`)
     .setFooter(`Message ID: ${newMessage.id}`)
+    .setTimestamp(Date.now(), true)
+    .setColor('ORANGE')
 
   if (loggingEnabled === true) {
     logChannel.send({ embeds: [embed] });

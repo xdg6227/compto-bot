@@ -1,9 +1,9 @@
 const { Discord, Client, Collection, Intents, MessageEmbed } = require('discord.js');
+const { token, prefix, mongodbkey, owner, statcordkey } = require('./config.json');
 const { GiveawaysManager } = require('discord-giveaways');
 const { DiscordTogether } = require('discord-together');
 const { Player } = require('discord-player');
 const { Database } = require('quickmongo');
-const { token, prefix, mongodbkey, owner, statcordkey } = require('./config.json');
 const StatcordJS = require('statcord.js');
 const fs = require('fs');
 
@@ -15,8 +15,9 @@ const player = new Player(client);
 client.commands = new Collection();
 client.aliases = new Collection();
 client.snipes = new Collection();
-client.statcord = statcord;
 client.mongodb = mongodbkey;
+client.statcord = statcord;
+client.together = together;
 client.prefix = prefix;
 client.owner = owner;
 client.db = database;

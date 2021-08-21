@@ -28,7 +28,6 @@ module.exports = {
       if (!client.owner.includes(message.author.id)) return message.channel.send('Only <@528637169544331291> is allowed to grant badges.');
       if (!user) return message.channel.send('Come on you know how to mention a user.');
       if (!giveBadge) return message.channel.send('Mate, you should probably say a badge to give.')
-      let userID = user.id;
 
       if (giveBadge === 'owner') {
         client.db.set(`badgeOwner_${user.id}`, true)
