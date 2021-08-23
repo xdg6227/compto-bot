@@ -24,15 +24,28 @@ module.exports = {
       responses = await axios.get(facts);
       fact = responses.data;
 
-      let embed = new MessageEmbed()
+      const embed = new MessageEmbed()
         .setTitle(":panda_face: Random Panda Image and Fact")
         .setColor('#7289da')
         .setDescription(fact.fact)
         .setImage(image.link)
       await message.channel.send({ embeds: [embed] });
     } catch (error) {
-      message.channel.send('There was an error with the command, please try again later.');
-      console.log(`[ERROR] Command: ${this.name} | Error: ${error}`);
+      let errorMessages = require('../../Data/responses.json').error;
+      let errMsg = errorMessages[Math.floor(Math.random() * errorMessages.length)];
+
+      const errorEmbed = new MessageEmbed()
+        .setTitle(`<:redwarning:865854104193466368> ${errMsg}`)
+        .setColor('RED')
+        .setDescription(`The error has been logged to the console. Here is a brief description of the error:\n\n\`\`\`${error}\`\`\``)
+      message.channel.send({ embeds: [errorEmbed] });
+
+      const cmdErrorEmbed = new MessageEmbed()
+        .setTitle(`Command Error`)
+        .setDescription(`**Command:** ${this.name}\n**Error:** ${error}`)
+        .setColor('RED')
+        .setTimestamp(message.createdAt, true)
+      client.guilds.cache.get('848479759284436992').channels.cache.get('874853925428277298').send({ embeds: [cmdErrorEmbed] })
     }
   }
 }

@@ -12,7 +12,7 @@ module.exports = {
   ownerOnly: true,
   guildOnly: true,
   async execute(client, message, args) {
-    if (!client.owner.includes(message.author.id)) return message.channel.send('This command is for the owner only.');
+    if (!client.ownerID.includes(message.author.id)) return message.channel.send('This command is for the owner only.');
     let commandName = args[0];
     if (!commandName) return message.channel.send('Please provide a command to reload.');
     let command = message.client.commands.get(commandName) || message.client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
@@ -22,7 +22,7 @@ module.exports = {
       let newCommand = require(`../../Commands/${command.category}/${command.name}.js`);
       message.client.commands.set(newCommand.name, newCommand);
 
-      let embed = new MessageEmbed()
+      const embed = new MessageEmbed()
         .setTitle('<:success:865854104152178688> Reload Successful')
         .setColor('#00FF00')
         .setDescription(`The command \`${command.name}\` was reloaded.`)
@@ -30,16 +30,15 @@ module.exports = {
       console.log(`[RELOAD] Command was reloaded by ${message.author.tag}`);
     } catch (error) {
       let errorMessages = require('../../Data/responses.json').error;
-      let errMsg = errorMessages[Math.floor(Math.random() * errorMessages.length)];
+      const errMsg = errorMessages[Math.floor(Math.random() * errorMessages.length)];
 
       let errorEmbed = new MessageEmbed()
         .setTitle(`<:redwarning:865854104193466368> ${errMsg}`)
         .setColor('RED')
         .setDescription(`The error has been logged to the console. Here is a brief description of the error:\n\n\`\`\`${error}\`\`\``)
-
       message.channel.send({ embeds: [errorEmbed] });
 
-      let cmdErrorEmbed = new MessageEmbed()
+      const cmdErrorEmbed = new MessageEmbed()
         .setTitle(`Command Error`)
         .setDescription(`**Command:** ${this.name}\n**Error:** ${error}`)
         .setColor('RED')

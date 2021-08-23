@@ -12,12 +12,12 @@ module.exports = {
   ownerOnly: true,
   guildOnly: true,
   async execute(client, message, args) {
-    if (!client.owner.includes(message.author.id)) return message.channel.send('This command is for the owner only.');
+    if (!client.ownerID.includes(message.author.id)) return message.channel.send('This command is for the owner only.');
 
     let string = '';
     client.guilds.cache.forEach(guild => { string += "**" + guild.name + "** | `" + guild.id + "` | <@" + guild.owner + ">\n" })
 
-    let embed = new MessageEmbed()
+    const embed = new MessageEmbed()
       .setAuthor('All guilds', message.author.displayAvatarURL({ format: "png", dynamic: true, size: 1024 }))
       .setColor('#7289da')
       .setDescription(`**Guild Name** | \`Guild ID\` | Guild Owner\n==========\n${string}`)

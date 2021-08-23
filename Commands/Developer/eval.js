@@ -13,42 +13,40 @@ module.exports = {
   ownerOnly: true,
   guildOnly: true,
   async execute(client, message, args) {
-    if (!client.owner.includes(message.author.id)) return message.channel.send('This command is for the owner only.');
+    if (!client.ownerID.includes(message.author.id)) return message.channel.send('This command is for the owner only.');
+
+    let text = args[0];
+    if (!text) return message.channel.send('Provide something to evaluate..');
+    if (text === 'client.token') return message.channel.send('Yeahhh no token for you.');
+    if (text === 'process.env.TOKEN') return message.channel.send('Yeahhh no token for you.');
+    if (text === 'let config = require(`../../config.json`); config.token') return message.channel.send('Yeahhh no token for you.');
+    if (text === 'let config = require(\'../../config.json\'); config.token') return message.channel.send('Yeahhh no token for you.');
 
     try {
-      let text = args[0];
-
-      if (text === 'client.token') return message.channel.send('Yeahhh no token for you.');
-      if (text === 'process.env.TOKEN') return message.channel.send('Yeahhh no token for you.');
-      if (text === 'let config = require(`../../config.json`); config.token') return message.channel.send('Yeahhh no token for you.');
-      if (text === 'let config = require(\'../../config.json\'); config.token') return message.channel.send('Yeahhh no token for you.');
-
-      if (!text) return message.channel.send('Please provide something to evaluate.');
       let code = text.toLowerCase() == "-a" ? args.slice(1).join(" ") : args.join(" ");
       let decideAwait = text.toLowerCase() == "-a" ? `(async () => { {code} })();` : `{code}`;
       decideAwait = decideAwait.replace(`{code}`, code);
       let evaluation = util.inspect(await eval(decideAwait));
 
-      let embed = new MessageEmbed()
-        .setTitle('<:success:865854104152178688> Evaluated!')
-        .setColor('#00FF00')
+      const embed = new MessageEmbed()
+        .setTitle('<:success:865854104152178688> Code Evaluated')
+        .setColor('GREEN')
         .addField(`Input`, `\`\`\`js\n${code}\`\`\``)
         .addField(`Output`, `\`\`\`js\n${evaluation}\`\`\``)
-        .addField(`Output Type`, `\`\`\`js\n${typeof evaluation}\`\`\``)
       message.channel.send({ embeds: [embed] });
+
       console.log(`[EVAL] Command was run by ${message.author.tag} | Contents: ${code}`);
     } catch (error) {
       let errorMessages = require('../../Data/responses.json').error;
       let errMsg = errorMessages[Math.floor(Math.random() * errorMessages.length)];
 
-      let errorEmbed = new MessageEmbed()
+      const errorEmbed = new MessageEmbed()
         .setTitle(`<:redwarning:865854104193466368> ${errMsg}`)
         .setColor('RED')
         .setDescription(`The error has been logged to the console. Here is a brief description of the error:\n\n\`\`\`${error}\`\`\``)
-
       message.channel.send({ embeds: [errorEmbed] });
 
-      let cmdErrorEmbed = new MessageEmbed()
+      const cmdErrorEmbed = new MessageEmbed()
         .setTitle(`Command Error`)
         .setDescription(`**Command:** ${this.name}\n**Error:** ${error}`)
         .setColor('RED')

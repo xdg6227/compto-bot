@@ -14,12 +14,12 @@ module.exports = async (client, message) => {
     /* Ban Check */
     let banCheck = await client.db.fetch(`botban_${message.author.id}`);
     if (banCheck == true) {
-      let bannedEmbed = new MessageEmbed()
+      const bannedEmbed = new MessageEmbed()
         .setTitle(`You were been banned from using Compto.`)
         .setDescription(`To get unbanned, talk to the owner aka <@528637169544331291> | \`Night_Crown_#0001\`.`)
         .setColor('RED')
 
-      return message.channel.send({ embeds: [bancheck] });
+      return message.channel.send({ embeds: [bannedEmbed] });
     } else {
     let args = message.content.substring(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
@@ -29,7 +29,7 @@ module.exports = async (client, message) => {
     client.statcord.postCommand(command.name, message.author.id);
 
     if (!command.enabled) {
-      let disabledEmbed = new MessageEmbed()
+      const disabledEmbed = new MessageEmbed()
         .setDescription(`This command is currently disabled, try again later.`)
         .setColor('RED')
 
@@ -37,7 +37,7 @@ module.exports = async (client, message) => {
     };
 
     if (command.guildOnly && message.channel.type === 'dm') {
-      let dmEmbed = new MessageEmbed()
+      const dmEmbed = new MessageEmbed()
         .setDescription(`I can't execute that command inside DMs!`)
         .setColor('RED')
 
@@ -55,14 +55,14 @@ module.exports = async (client, message) => {
 
       if (now < expirationTime && command.nsfw) {
         const timeLeft = (expirationTime - now) / 1000;
-        let hornySlowdownEmbed = new MessageEmbed()
+        const hornySlowdownEmbed = new MessageEmbed()
           .setDescription(`Slow down horny fuck! Wait **${timeLeft.toFixed(1)}** more seconds before using the **${command.name}** command.`)
           .setColor('RED')
 
         return message.channel.send({ embeds: [hornySlowdownEmbed] })
       } else if (now < expirationTime) {
         const timeLeft = (expirationTime - now) / 1000;
-        let slowdownEmbed = new MessageEmbed()
+        const slowdownEmbed = new MessageEmbed()
           .setDescription(`You must wait **${timeLeft.toFixed(1)}** more seconds before using the **${command.name}** command.`)
           .setColor('RED')
 
@@ -87,17 +87,17 @@ module.exports = async (client, message) => {
           .setTitle('Leveled Up!')
           .setColor('RANDOM')
           .setDescription(`**GG** ${message.author}, you just leveled up to level **${user.level + 1}** 🥳`);
-        const sendLevelEmbed = await message.channel.send({ embeds: [levelEmbed] });
+        await message.channel.send({ embeds: [levelEmbed] });
       }
     }
 
     /* Command Ran */
-    let commandEmbed = new MessageEmbed()
+    const commandEmbed = new MessageEmbed()
       .setTitle(`Command was Ran`)
       .setDescription(`**Command:** ${command.name}\n**Ran by:** <@${message.author.id}>\`(${message.author.id})\`\n**Ran in:** ${message.guild.name}\`(${message.guild.id})\``)
       .setColor('#7289da')
       .setTimestamp(message.createdAt, true)
-    client.guilds.cache.get('848479759284436992').channels.cache.get('866808138312581130').send({ embeds: [commandEmbed] })
+    if (message.author.id === client.ownerID) return; else client.guilds.cache.get('848479759284436992').channels.cache.get('866808138312581130').send({ embeds: [commandEmbed] })
     }
   };
 
@@ -107,7 +107,7 @@ module.exports = async (client, message) => {
   if (afkStatusCheck === true) {
     client.db.set(`afk_status_${message.author.id}`, false)
     client.db.set(`afk_status_id_${message.author.id}`, false)
-    let afkEmbed = new MessageEmbed()
+    const afkEmbed = new MessageEmbed()
       .setAuthor('AFK Status', message.author.displayAvatarURL({ format: "png", dynamic: true, size: 1024 }))
       .setDescription(`Welcome back ${message.author}! I removed your AFK status.`)
       .setColor('#7289da')

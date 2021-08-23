@@ -12,7 +12,7 @@ module.exports = {
   ownerOnly: false,
   guildOnly: true,
   async execute(client, message, args) {
-    let embed = new MessageEmbed()
+    const embed = new MessageEmbed()
       .setTitle(`<:error:865853166839267339> Weekly Failed`)
       .setDescription(`This command is not ready for update v1.5, will be releasing soon :eyes:`)
       .setColor('RED')

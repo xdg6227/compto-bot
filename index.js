@@ -1,5 +1,5 @@
 const { Discord, Client, Collection, Intents, MessageEmbed } = require('discord.js');
-const { token, prefix, mongodbkey, owner, statcordkey } = require('./config.json');
+const { token, prefix, mongodbkey, ownerID, statcordkey } = require('./config.json');
 const { GiveawaysManager } = require('discord-giveaways');
 const { DiscordTogether } = require('discord-together');
 const { Player } = require('discord-player');
@@ -19,7 +19,7 @@ client.mongodb = mongodbkey;
 client.statcord = statcord;
 client.together = together;
 client.prefix = prefix;
-client.owner = owner;
+client.ownerID = ownerID;
 client.db = database;
 
 /* File Reader */

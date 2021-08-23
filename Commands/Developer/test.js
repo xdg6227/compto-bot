@@ -12,7 +12,7 @@ module.exports = {
   ownerOnly: false,
   guildOnly: true,
   async execute(client, message, args) {
-    if (!client.owner.includes(message.author.id)) return message.channel.send('This command is for the owner only.');
+    if (!client.ownerID.includes(message.author.id)) return message.channel.send('This command is for the owner only.');
 
     // Code
   }
