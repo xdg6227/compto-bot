@@ -74,11 +74,13 @@ module.exports = {
               .setLabel("Enable")
               .setStyle("SUCCESS")
               .setDisabled(state),
+              
             new MessageButton()
               .setCustomId("disable")
               .setLabel("Disable")
               .setStyle("DANGER")
               .setDisabled(state),
+
             new MessageButton()
               .setCustomId("edit")
               .setLabel("Edit")

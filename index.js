@@ -1,10 +1,11 @@
 const { Discord, Client, Collection, Intents, MessageEmbed } = require('discord.js');
-const { token, prefix, mongodbkey, ownerID, statcordkey } = require('./config.json');
+const { token, prefix, mongodbkey, ownerID, statcordkey, topggkey } = require('./config.json');
 const { GiveawaysManager } = require('discord-giveaways');
 const { DiscordTogether } = require('discord-together');
 const { Player } = require('discord-player');
 const { Database } = require('quickmongo');
 const StatcordJS = require('statcord.js');
+// const mongoose = require('mongoose');
 const fs = require('fs');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES] });
@@ -18,8 +19,8 @@ client.snipes = new Collection();
 client.mongodb = mongodbkey;
 client.statcord = statcord;
 client.together = together;
-client.prefix = prefix;
 client.ownerID = ownerID;
+client.prefix = prefix;
 client.db = database;
 
 /* File Reader */
@@ -40,6 +41,15 @@ fs.readdirSync("./Events").forEach(folder => {
     client.on(file.split(".")[0], event.bind(null, client));
   });
 });
+
+/* Mongoose */
+// mongoose.connect(mongodbkey, { useNewUrlParser: true, useUnifiedTopology: true });
+// const db = mongoose.connection;
+
+// db.on('error', console.error.bind(console, 'connection error: '));
+// db.once('open', function() {
+//   console.log('[MongoDB] Connected to MongoDB database.');
+// });
 
 /* Giveaways Manager */
 const manager = new GiveawaysManager(client, {
@@ -64,10 +74,10 @@ const manager = new GiveawaysManager(client, {
 /* Statcord */
 statcord.on('autopost-start', () => {
   let statcordStartEmbed = new MessageEmbed()
-      .setTitle(`<:statcord:865854104173805588> Statcord`)
-      .setDescription(`Started autpost.`)
-      .setColor('YELLOW')
-    client.guilds.cache.get('848479759284436992').channels.cache.get('874853910173585408').send({ embeds: [statcordStartEmbed] })
+    .setTitle(`<:statcord:865854104173805588> Statcord`)
+    .setDescription(`Started autpost.`)
+    .setColor('YELLOW')
+  client.guilds.cache.get('848479759284436992').channels.cache.get('874853910173585408').send({ embeds: [statcordStartEmbed] })
 });
 
 statcord.on('post', status => {
@@ -85,6 +95,18 @@ statcord.on('post', status => {
     client.guilds.cache.get('848479759284436992').channels.cache.get('874853910173585408').send({ embeds: [statcordStartEmbed] })
   }
 });
+
+/* Top.GG */
+const { AutoPoster } = require('topgg-autoposter');
+
+AutoPoster(topggkey, client)
+  .on('posted', () => {
+    let topggPostEmbed = new MessageEmbed()
+      .setTitle(`Top.gg`)
+      .setDescription(`Posted stats to Top.gg!`)
+      .setColor('#7289da')
+    client.guilds.cache.get('848479759284436992').channels.cache.get('874853910173585408').send({ embeds: [topggPostEmbed] });
+  });
 
 /* Discord Player Events */
 player.on('trackStart', (message, track) => {
